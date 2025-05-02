@@ -21,3 +21,20 @@ Route::get('/', function () {
 Route::get('/perfil', function () {
     return view('profile');
 })->name('profile');
+
+Route::get('/colecciones', function () {
+    return view('colecciones');
+})->name('colecciones');
+
+// Subrutas para cada colección
+Route::get('/colecciones/base-set', function () {
+    return view('colecciones.base-set');
+})->name('colecciones.base-set');
+
+Route::get('/colecciones/champions-path', function () {
+    return view('colecciones.champions-path');
+})->name('colecciones.champions-path');
+
+Route::get('/colecciones/scarlet-violet', function () {
+    return view('colecciones.scarlet-violet');
+})->name('colecciones.scarlet-violet');

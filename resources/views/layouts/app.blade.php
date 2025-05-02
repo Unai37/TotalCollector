@@ -31,8 +31,10 @@
             <li><a href="{{ route('home') }}" class="block py-1">Inicio</a></li>
             <li><strong>Colecciones</strong>
                 <ul class="ml-4 list-disc">
-                    <li>1</li>
-                    <li>2</li>
+                    <li><a href="{{ route('colecciones') }}">Todas</a></li>
+                    <li><a href="{{ route('colecciones.base-set') }}">Base Set</a></li>
+                    <li><a href="{{ route('colecciones.champions-path') }}">Champion's Path</a></li>
+                    <li><a href="{{ route('colecciones.scarlet-violet') }}">Scarlet & Violet</a></li>
                 </ul>
             </li>
             <li>Favoritos</li>
