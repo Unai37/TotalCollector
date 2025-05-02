@@ -14,7 +14,7 @@
                 <img src="{{ $carta['images']['small'] }}" alt="{{ $carta['name'] }}" class="w-full h-auto mb-2">
                 <span class="font-semibold text-sm">{{ $carta['name'] }}</span>
                 @if (!empty($carta['nationalPokedexNumbers']))
-                    <span class="text-xs text-gray-500">#{{ $carta['nationalPokedexNumbers'][0] }}</span>
+                    <span class="text-xs text-gray-500">Nº Pokedex #{{ $carta['nationalPokedexNumbers'][0] }}</span>
                 @endif
             </div>
         @endforeach

@@ -28,10 +28,9 @@
     <!-- Menú lateral -->
     <aside id="sidebar" class="absolute left-0 top-16 w-64 bg-green-100 p-4 shadow hidden z-50">
         <ul>
-            <li><a href="{{ route('home') }}" class="block py-1">Inicio</a></li>
-            <li><strong>Colecciones</strong>
+            <li><a href="{{ route('home') }}" class="block py-1"><strong>Inicio</strong></a></li>
+            <li><a href="{{ route('colecciones') }}"><strong>Colecciones</strong></a>
                 <ul class="ml-4 list-disc">
-                    <li><a href="{{ route('colecciones') }}">Todas</a></li>
                     <li><a href="{{ route('colecciones.base-set') }}">Base Set</a></li>
                     <li><a href="{{ route('colecciones.champions-path') }}">Champion's Path</a></li>
                     <li><a href="{{ route('colecciones.scarlet-violet') }}">Scarlet & Violet</a></li>
