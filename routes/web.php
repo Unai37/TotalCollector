@@ -26,8 +26,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // 🛡 Rutas protegidas
 Route::middleware('auth.session')->group(function () {
     Route::get('/perfil', [UsuarioController::class, 'profile'])->name('profile');
-    Route::get('/favoritos', [FavoritoController::class, 'index'])->name('favoritos');
     Route::get('/foro', [ForoController::class, 'index'])->name('foro');
     Route::post('/usuario/actualizar', [UsuarioController::class, 'actualizar'])->name('usuario.actualizar');
     Route::post('/usuario/borrar', [UsuarioController::class, 'borrar'])->name('usuario.borrar');
+    Route::get('/favoritos', [FavoritoController::class, 'index'])->name('favoritos');
+    Route::post('/favoritos/agregar', [FavoritoController::class, 'agregar'])->name('favoritos.agregar');
+    Route::post('/favoritos/eliminar', [FavoritoController::class, 'eliminar'])->name('favoritos.eliminar');
 });

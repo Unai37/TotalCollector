@@ -36,7 +36,7 @@
                     <li><a href="{{ route('colecciones.scarlet-violet') }}">Scarlet & Violet</a></li>
                 </ul>
             </li>
-            <li>Favoritos</li>
+            <li><a href="{{ route('favoritos') }}">Favoritos</a></li>
             <li>Foros</li>
         </ul>
     </aside>
