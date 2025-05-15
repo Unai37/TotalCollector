@@ -12,7 +12,6 @@ class UsuarioController extends Controller
     public function actualizar(Request $request)
     {
         $request->validate([
-            'nombre_usuario' => 'required|string|max:100',
             'nombre' => 'required|string|max:100',
             'password' => 'nullable|string|min:6',
         ]);
