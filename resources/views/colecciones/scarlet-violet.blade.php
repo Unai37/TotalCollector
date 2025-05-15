@@ -67,7 +67,11 @@
 <div id="modalCarta" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
     <div class="relative">
         <button onclick="cerrarModal()" class="absolute top-2 right-2 text-white text-xl font-bold">&#10006;</button>
-        <img id="modalImagen" src="" alt="Carta ampliada" class="max-h-[80vh] rounded shadow-lg transition-transform duration-300">
+        <img id="modalImagen" src="" alt="Carta ampliada"
+     class="rounded shadow-lg transition-transform duration-300"
+     style="max-width: 90vw; max-height: 80vh; width: auto; height: auto; object-fit: contain;">
+
+
     </div>
 </div>
 
