@@ -27,6 +27,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('auth.session')->group(function () {
     Route::get('/perfil', [UsuarioController::class, 'profile'])->name('profile');
     Route::get('/foro', [ForoController::class, 'index'])->name('foro');
+    Route::post('/foro/preguntar', [ForoController::class, 'crearPregunta'])->name('foro.crear');
+    Route::post('/foro/responder', [ForoController::class, 'responder'])->name('foro.responder');
+    Route::delete('/foro/eliminar/{id}', [ForoController::class, 'eliminar'])->name('foro.eliminar');
     Route::post('/usuario/actualizar', [UsuarioController::class, 'actualizar'])->name('usuario.actualizar');
     Route::post('/usuario/borrar', [UsuarioController::class, 'borrar'])->name('usuario.borrar');
     Route::get('/favoritos', [FavoritoController::class, 'index'])->name('favoritos');
