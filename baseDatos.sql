@@ -41,7 +41,9 @@ CREATE TABLE EntradaUsuario (
 CREATE TABLE Favoritos (
     Id INT PRIMARY KEY AUTO_INCREMENT,
     Id_Usuario INT NOT NULL,
-    Id_Carta INT NOT NULL,
+    Id_Carta VARCHAR(50) NOT NULL, -- ID oficial de la carta en la API
+    Nombre VARCHAR(100),
+    Imagen VARCHAR(255),
     Coleccion VARCHAR(100),
     FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id)
 );
