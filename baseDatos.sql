@@ -25,8 +25,12 @@ CREATE TABLE UsuarioRol (
 CREATE TABLE Entrada (
     Id INT PRIMARY KEY AUTO_INCREMENT,
     Fecha_Creacion DATE NOT NULL,
-    Texto TEXT NOT NULL
+    Texto TEXT NOT NULL,
+    Tipo ENUM('pregunta', 'respuesta') NOT NULL DEFAULT 'pregunta',
+    Id_Pregunta INT NULL,
+    FOREIGN KEY (Id_Pregunta) REFERENCES Entrada(Id)
 );
+
 
 -- Tabla intermedia Entrada-Usuario (relación muchos a muchos)
 CREATE TABLE EntradaUsuario (
