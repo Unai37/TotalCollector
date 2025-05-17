@@ -44,7 +44,7 @@ class LoginController extends Controller
     public function logout()
     {
         Session::flush();
-        return redirect()->route('logout.confirmado')->with('mensaje', 'Has cerrado sesión con éxito.');
+        return redirect()->route('logout')->with('mensaje', 'Has cerrado sesión con éxito.');
     }
 }
 
