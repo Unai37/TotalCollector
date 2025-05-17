@@ -54,6 +54,8 @@ class ForoController extends Controller
             'Id_Entrada' => $entradaId,
         ]);
 
+        session()->flash('mensaje', '¡Pregunta publicada con éxito!');
+
         return redirect()->route('foro');
     }
 
@@ -73,17 +75,31 @@ class ForoController extends Controller
             'Id_Entrada' => $respuestaId,
         ]);
 
+        session()->flash('mensaje', '¡Respuesta publicada con éxito!');
+
         return redirect()->route('foro');
     }
 
     public function eliminar($id)
     {
-        // Eliminar respuestas primero
-        DB::table('entrada')->where('Id_Pregunta', $id)->delete();
-        // Eliminar relación
-        DB::table('entradausuario')->where('Id_Entrada', $id)->delete();
-        // Eliminar la entrada
-        DB::table('entrada')->where('Id', $id)->delete();
+        // Obtener todos los IDs de respuestas asociadas a esta pregunta
+    $respuestasIds = DB::table('entrada')
+        ->where('Id_Pregunta', $id)
+        ->pluck('Id');
+
+    // Eliminar entradausuario para las respuestas
+    DB::table('entradausuario')->whereIn('Id_Entrada', $respuestasIds)->delete();
+
+    // Eliminar las respuestas
+    DB::table('entrada')->whereIn('Id', $respuestasIds)->delete();
+
+    // Eliminar entradausuario para la pregunta
+    DB::table('entradausuario')->where('Id_Entrada', $id)->delete();
+
+    // Eliminar la pregunta
+    DB::table('entrada')->where('Id', $id)->delete();
+
+        session()->flash('mensaje', 'La pregunta ha sido eliminada correctamente.');
 
         return redirect()->route('foro');
     }

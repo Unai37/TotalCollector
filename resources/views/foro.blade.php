@@ -3,6 +3,11 @@
 @section('content')
 <div class="container mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">Foro de Preguntas</h1>
+    @if (session('mensaje'))
+        <div class="bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded mb-4 text-center">
+            {{ session('mensaje') }}
+        </div>
+    @endif
 
     @if($rol == 2)
     <form action="{{ route('foro.crear') }}" method="POST" class="mb-6">
@@ -25,7 +30,7 @@
             <textarea name="texto" required class="w-full border rounded p-2" placeholder="Responder..."></textarea>
             <button type="submit" class="bg-green-500 text-white px-3 py-1 rounded mt-1">Responder</button>
         </form>
-        <form action="{{ route('foro.eliminar', $pregunta->Id) }}" method="POST" class="mt-1">
+        <form action="{{ route('foro.eliminar', $pregunta->Id) }}" method="POST" class="mt-1" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta pregunta?');"> 
             @csrf @method('DELETE')
             <button type="submit" class="text-red-500 text-sm">Eliminar pregunta</button>
         </form>
