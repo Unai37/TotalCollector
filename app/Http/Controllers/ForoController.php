@@ -13,23 +13,23 @@ class ForoController extends Controller
         $usuarioId = Session::get('usuario_id');
 
         // Obtener el rol del usuario
-        $rol = DB::table('UsuarioRol')
+        $rol = DB::table('usuariorol')
             ->where('Id_Usuario', $usuarioId)
             ->value('Id_Rol');
 
         // Obtener preguntas con sus respuestas
-        $preguntas = DB::table('Entrada as e')
-            ->join('EntradaUsuario as eu', 'e.Id', '=', 'eu.Id_Entrada')
-            ->join('Usuario as u', 'eu.Id_Usuario', '=', 'u.Id')
+        $preguntas = DB::table('entrada as e')
+            ->join('entradausuario as eu', 'e.Id', '=', 'eu.Id_Entrada')
+            ->join('usuario as u', 'eu.Id_Usuario', '=', 'u.Id')
             ->where('e.Tipo', 'pregunta')
             ->select('e.*', 'u.Nombre')
             ->orderBy('e.Fecha_Creacion', 'desc')
             ->get();
 
         foreach ($preguntas as $pregunta) {
-            $pregunta->respuestas = DB::table('Entrada as r')
-                ->join('EntradaUsuario as eu', 'r.Id', '=', 'eu.Id_Entrada')
-                ->join('Usuario as u', 'eu.Id_Usuario', '=', 'u.Id')
+            $pregunta->respuestas = DB::table('entrada as r')
+                ->join('entradausuario as eu', 'r.Id', '=', 'eu.Id_Entrada')
+                ->join('usuario as u', 'eu.Id_Usuario', '=', 'u.Id')
                 ->where('r.Tipo', 'respuesta')
                 ->where('r.Id_Pregunta', $pregunta->Id)
                 ->select('r.*', 'u.Nombre')
@@ -43,13 +43,13 @@ class ForoController extends Controller
     {
         $usuarioId = Session::get('usuario_id');
 
-        $entradaId = DB::table('Entrada')->insertGetId([
+        $entradaId = DB::table('entrada')->insertGetId([
             'Fecha_Creacion' => Carbon::now(),
             'Texto' => $request->texto,
             'Tipo' => 'pregunta',
         ]);
 
-        DB::table('EntradaUsuario')->insert([
+        DB::table('entradausuario')->insert([
             'Id_Usuario' => $usuarioId,
             'Id_Entrada' => $entradaId,
         ]);
@@ -61,14 +61,14 @@ class ForoController extends Controller
     {
         $usuarioId = Session::get('usuario_id');
 
-        $respuestaId = DB::table('Entrada')->insertGetId([
+        $respuestaId = DB::table('entrada')->insertGetId([
             'Fecha_Creacion' => Carbon::now(),
             'Texto' => $request->texto,
             'Tipo' => 'respuesta',
             'Id_Pregunta' => $request->id_pregunta,
         ]);
 
-        DB::table('EntradaUsuario')->insert([
+        DB::table('entradausuario')->insert([
             'Id_Usuario' => $usuarioId,
             'Id_Entrada' => $respuestaId,
         ]);
@@ -79,11 +79,11 @@ class ForoController extends Controller
     public function eliminar($id)
     {
         // Eliminar respuestas primero
-        DB::table('Entrada')->where('Id_Pregunta', $id)->delete();
+        DB::table('entrada')->where('Id_Pregunta', $id)->delete();
         // Eliminar relación
-        DB::table('EntradaUsuario')->where('Id_Entrada', $id)->delete();
+        DB::table('entradausuario')->where('Id_Entrada', $id)->delete();
         // Eliminar la entrada
-        DB::table('Entrada')->where('Id', $id)->delete();
+        DB::table('entrada')->where('Id', $id)->delete();
 
         return redirect()->route('foro');
     }

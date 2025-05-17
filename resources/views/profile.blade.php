@@ -5,6 +5,13 @@
 
     <h2 class="text-2xl font-bold mb-6 text-cyan-700 text-center">Perfil de Usuario</h2>
 
+    {{-- Mensaje de éxito --}}
+    @if (session('mensaje'))
+        <div class="bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded mb-4 text-center">
+            {{ session('mensaje') }}
+        </div>
+    @endif
+
     <!-- Formulario de Actualización -->
     <form action="{{ route('usuario.actualizar') }}" method="POST" class="flex flex-col gap-5">
         @csrf
@@ -27,8 +34,9 @@
         </button>
     </form>
 
-    <!-- Formulario para eliminar la cuenta -->
-    <form action="{{ route('usuario.borrar') }}" method="POST" class="mt-6">
+    <!-- Formulario para eliminar la cuenta con confirmación -->
+    <form action="{{ route('usuario.borrar') }}" method="POST" class="mt-6" 
+          onsubmit="return confirm('¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.');">
         @csrf
         <button type="submit" 
                 class="w-full bg-red-400 hover:bg-red-500 transition-colors text-white font-semibold rounded-md py-2">

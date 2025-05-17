@@ -27,10 +27,10 @@ class LoginController extends Controller
     }
 
     // Obtener el rol del usuario
-    $rol = DB::table('UsuarioRol')
-        ->join('Rol', 'UsuarioRol.Id_Rol', '=', 'Rol.Id')
-        ->where('UsuarioRol.Id_Usuario', $usuario->Id)
-        ->value('Rol.Nombre'); // Asegúrate de que este campo esté correcto
+    $rol = DB::table('usuariorol')
+        ->join('rol', 'usuariorol.Id_Rol', '=', 'Rol.Id')
+        ->where('usuariorol.Id_Usuario', $usuario->Id)
+        ->value('rol.Nombre'); // Asegúrate de que este campo esté correcto
 
     // Guardar en sesión
     Session::put('usuario_id', $usuario->Id);
@@ -44,7 +44,7 @@ class LoginController extends Controller
     public function logout()
     {
         Session::flush();
-        return redirect()->route('login');
+        return redirect()->route('logout.confirmado')->with('mensaje', 'Has cerrado sesión con éxito.');
     }
 }
 

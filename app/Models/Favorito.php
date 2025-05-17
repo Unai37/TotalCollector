@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Favorito extends Model
 {
-    protected $table = 'Favoritos';
+    protected $table = 'favoritos';
     protected $primaryKey = 'Id';
     public $timestamps = false;
 

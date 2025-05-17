@@ -27,7 +27,7 @@ class FavoritoController extends Controller
     {
         $usuarioId = Session::get('usuario_id');
 
-        DB::table('Favoritos')->insert([
+        DB::table('favoritos')->insert([
             'Id_Usuario' => $usuarioId,
             'Id_Carta' => $request->id_carta,
             'Nombre' => $request->nombre,
@@ -42,7 +42,7 @@ class FavoritoController extends Controller
     {
         $usuarioId = Session::get('usuario_id');
 
-        DB::table('Favoritos')
+        DB::table('favoritos')
             ->where('Id_Usuario', $usuarioId)
             ->where('Id_Carta', $request->id_carta)
             ->delete();

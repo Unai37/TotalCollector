@@ -19,16 +19,16 @@ class AuthController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        $usuario = DB::table('Usuario')->where('Email', $credentials['email'])->first();
+        $usuario = DB::table('usuario')->where('Email', $credentials['email'])->first();
 
         if (!$usuario || !Hash::check($credentials['password'], $usuario->Contraseña)) {
             return back()->with('error', 'Credenciales incorrectas.');
         }
 
-        $rol = DB::table('UsuarioRol')
-            ->join('Rol', 'UsuarioRol.Id_Rol', '=', 'Rol.Id')
-            ->where('UsuarioRol.Id_Usuario', $usuario->Id)
-            ->value('Rol');
+        $rol = DB::table('usuariorol')
+            ->join('rol', 'usuariorol.Id_Rol', '=', 'rol.Id')
+            ->where('usuariorol.Id_Usuario', $usuario->Id)
+            ->value('rol');
 
         Session::put('usuario_id', $usuario->Id);
         Session::put('usuario_nombre', $usuario->Nombre);
@@ -50,14 +50,14 @@ class AuthController extends Controller
             'password' => 'required|min:6|confirmed'
         ]);
 
-        $id = DB::table('Usuario')->insertGetId([
+        $id = DB::table('usuario')->insertGetId([
             'Nombre' => $request->nombre,
             'Email' => $request->email,
             'Contraseña' => bcrypt($request->password)
         ]);
 
         // Asignar rol por defecto (ej: 1 = Usuario normal)
-        DB::table('UsuarioRol')->insert([
+        DB::table('usuariorol')->insert([
             'Id_Usuario' => $id,
             'Id_Rol' => 2
         ]);

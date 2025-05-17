@@ -12,8 +12,7 @@ class UsuarioController extends Controller
     public function actualizar(Request $request)
     {
         $request->validate([
-            'nombre
-            ' => 'required|string|max:100',
+            'nombre' => 'required|string|max:100',
             'password' => 'nullable|string|min:6',
         ]);
 
@@ -31,20 +30,54 @@ class UsuarioController extends Controller
 
         Session::put('usuario_nombre', $request->nombre);
 
-        return back()->with('success', 'Datos actualizados correctamente.');
+        return redirect()->back()->with('mensaje', 'Los cambios se han guardado correctamente.');
     }
 
     public function borrar(Request $request)
     {
         $id = Session::get('usuario_id');
 
-        // Eliminar registros relacionados primero si es necesario (por ejemplo: UsuarioRol)
-        DB::table('UsuarioRol')->where('Id_Usuario', $id)->delete();
-        DB::table('usuario')->where('Id', $id)->delete();
+        DB::beginTransaction();
 
-        Session::flush(); // Cerrar sesión
+        try {
+            // 1. Eliminar relaciones en entradausuario
+            DB::table('entradausuario')->where('Id_Usuario', $id)->delete();
 
-        return redirect('/login')->with('success', 'Cuenta eliminada correctamente.');
+            // 2. Eliminar favoritos
+            DB::table('favoritos')->where('Id_Usuario', $id)->delete();
+
+            // 3. Eliminar relaciones de roles
+            DB::table('usuariorol')->where('Id_Usuario', $id)->delete();
+
+            // 4. Eliminar entradas donde el usuario es el único relacionado
+            $entradas = DB::table('entradausuario')
+                ->select('Id_Entrada')
+                ->where('Id_Usuario', $id)
+                ->pluck('Id_Entrada');
+
+            foreach ($entradas as $entradaId) {
+                $usuariosRelacionados = DB::table('entradausuario')
+                    ->where('Id_Entrada', $entradaId)
+                    ->count();
+
+                if ($usuariosRelacionados <= 1) {
+                    // Eliminar la entrada solo si no está compartida con otros usuarios
+                    DB::table('entrada')->where('Id', $entradaId)->delete();
+                }
+            }
+
+            // 5. Finalmente eliminar el usuario
+            DB::table('usuario')->where('Id', $id)->delete();
+
+            DB::commit();
+
+            Session::flush();
+
+            return redirect('/')->with('mensaje', 'Tu cuenta y todos tus datos han sido eliminados con éxito.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', 'Error al eliminar la cuenta: ' . $e->getMessage());
+        }
     }
     public function profile()
     {
