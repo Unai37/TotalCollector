@@ -1,12 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-4xl mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-4">Scarlet & Violet</h1>
-    <p class="mb-6">La generación más reciente con nuevas mecánicas.</p>
-
-    <img src="https://images.pokemontcg.io/sv2/logo.png" alt="Scarlet & Violet" class="w-48 h-48 object-contain mx-auto mb-6">
-
+<div class="bg-gradient-to-r from-pink-50 to-orange-50 rounded-xl p-8 mb-10 shadow-inner">
+    <div class="text-center mb-6">
+        <h1 class="text-5xl font-extrabold text-gray-800 mb-2 tracking-tight">Scarlet & Violet</h1>
+        <p class="text-lg text-gray-600">La generación más reciente con nuevas mecánicas.</p>
+    </div>
+    <div class="flex justify-center">
+        <img src="https://images.pokemontcg.io/sv2/logo.png" alt="Scarlet & Violet"
+             class="w-64 h-64 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300">
+    </div>
     <p class="text-gray-600">Total de cartas: 444<br>Lanzamiento: Marzo 2023</p>
 
     @if (session('mensaje'))

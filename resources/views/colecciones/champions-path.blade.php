@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-4xl mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-4">Champion’s Path</h1>
-    <p class="mb-6">Una expansión con cartas brillantes y populares.</p>
-
-    <img src="https://images.pokemontcg.io/swsh35/logo.png" alt="Champion’s Path" class="w-48 h-48 object-contain mx-auto mb-6">
+<div class="bg-gradient-to-r from-pink-50 to-orange-50 rounded-xl p-8 mb-10 shadow-inner">
+    <div class="text-center mb-6">
+        <h1 class="text-5xl font-extrabold text-gray-800 mb-2 tracking-tight">Champion’s Path</h1>
+        <p class="text-lg text-gray-600">Una expansión legendaria con cartas brillantes y coleccionables únicas.</p>
+    </div>
+    <div class="flex justify-center">
+        <img src="https://images.pokemontcg.io/swsh35/logo.png" alt="Champion’s Path"
+             class="w-64 h-64 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300">
+    </div>
 
     <p class="text-gray-600">Total de cartas: 80<br>Lanzamiento: Septiembre 2020</p>
 
@@ -17,7 +21,7 @@
 
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         @foreach ($cartas as $carta)
-            <div class="bg-white shadow rounded p-2 flex flex-col items-center text-center">
+            <div class="bg-white shadow-md rounded-2xl p-3 flex flex-col items-center text-center hover:shadow-lg transition">
                 <img src="{{ $carta['images']['small'] }}" alt="{{ $carta['name'] }}" class="w-full h-auto mb-2">
                 <span class="font-semibold text-sm">{{ $carta['name'] }}</span>
                 @if (!empty($carta['nationalPokedexNumbers']))

@@ -1,11 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-4xl mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-4">Base Set</h1>
-    <p class="mb-6">La colección original de cartas Pokémon, lanzada en 1999.</p>
+<div class="bg-gradient-to-r from-pink-50 to-orange-50 rounded-xl p-8 mb-10 shadow-inner">
+    <div class="text-center mb-6">
+        <h1 class="text-5xl font-extrabold text-gray-800 mb-2 tracking-tight">Base Set</h1>
+        <p class="text-lg text-gray-600">La colección original de cartas Pokémon, lanzada en 1999.</p>
+    </div>
+    <div class="flex justify-center">
+        <img src="https://images.pokemontcg.io/base1/logo.png" alt="Base Set"
+             class="w-64 h-64 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300">
+    </div>
 
-    <img src="https://images.pokemontcg.io/base1/logo.png" alt="Base Set" class="w-48 h-48 object-contain mx-auto mb-6">
+    <p class="text-gray-600">Total de cartas: 10<br>Lanzamiento: Octubre 1996</p>
 
     @if (session('mensaje'))
         <div class="bg-green-100 text-green-800 px-4 py-2 rounded mb-4 text-sm text-center">

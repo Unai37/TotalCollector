@@ -18,24 +18,24 @@
         @csrf
         <div>
             <label class="block mb-1">Nombre</label>
-            <input type="text" name="nombre" required class="w-full border px-3 py-2 rounded">
+            <input type="text" name="nombre" value="{{ old('nombre') }}" placeholder="Ash Ketchum" required class="w-full border px-3 py-2 rounded">
         </div>
         <div>
             <label class="block mb-1">Email</label>
-            <input type="email" name="email" required class="w-full border px-3 py-2 rounded">
+            <input type="email" name="email" value="{{ old('email') }}" placeholder="tu@email.com" required class="w-full border px-3 py-2 rounded">
         </div>
         <div>
             <label class="block mb-1">Contraseña</label>
             <input type="password" name="password" required class="w-full border px-3 py-2 rounded">
         </div>
         <div>
-        <label class="block mb-1">Confirmar Contraseña</label>
-        <input type="password" name="password_confirmation" required class="w-full border px-3 py-2 rounded">
-    </div>
-        <button type="submit" class="w-full bg-green-500 text-white py-2 rounded">Crear Cuenta</button>
+            <label class="block mb-1">Confirmar Contraseña</label>
+            <input type="password" name="password_confirmation" required class="w-full border px-3 py-2 rounded">
+        </div>
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 transition text-white py-2 rounded font-semibold">Crear Cuenta</button>
     </form>
 
-    <p class="mt-4 text-center">
+    <p class="mt-4 text-center text-sm">
         ¿Ya tienes una cuenta? <a href="{{ route('login') }}" class="text-blue-600 underline">Inicia sesión</a>
     </p>
 </div>
