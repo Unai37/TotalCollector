@@ -13,7 +13,7 @@
 
     <div class="w-full h-96 rounded-xl overflow-hidden border-4 border-red-400 shadow-lg">
         <iframe
-            src="https://www.google.com/maps/embed/v1/place?key=AÑADIRKEY&q=Instituto+Virgen+de+la+Paloma,+Madrid,+España&zoom=15"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCRLdofjGHB58QewjnWPrqrm0n7aLyhLEg&q=Instituto+Virgen+de+la+Paloma,+Madrid,+España&zoom=15"
             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
         </iframe>
