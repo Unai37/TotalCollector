@@ -47,6 +47,6 @@ class FavoritoController extends Controller
             ->where('Id_Carta', $request->id_carta)
             ->delete();
 
-        return back();
+        return view("favoritos");
     }
 }
