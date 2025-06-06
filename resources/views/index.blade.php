@@ -18,5 +18,27 @@
             referrerpolicy="no-referrer-when-downgrade">
         </iframe>
     </div>
+    <div class="max-w-6xl mx-auto px-4 py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <a href="{{ route('colecciones') }}" class="bg-yellow-100 border-4 border-red-400 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 block">
+            <div class="p-4">
+                <h2 class="text-xl font-pokemon text-red-600 mb-2">Colecciones</h2>
+                <p class="text-sm text-gray-700">Todas nuestras Colecciones</p>
+            </div>
+        </a>
+        <a href="{{ route('favoritos') }}" class="bg-yellow-100 border-4 border-red-400 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 block">
+            <div class="p-4">
+                <h2 class="text-xl font-pokemon text-red-600 mb-2">Favoritos</h2>
+                <p class="text-sm text-gray-700">Entra a tus cartas favoritas.</p>
+            </div>
+        </a>
+        <a href="{{ route('Foro') }}" class="bg-yellow-100 border-4 border-red-400 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 block">
+            <div class="p-4">
+                <h2 class="text-xl font-pokemon text-red-600 mb-2">Foro</h2>
+                <p class="text-sm text-gray-700">Encuentra nuestro foro de preguntas.</p>
+            </div>
+        </a>
+    </div>
+</div>
 </div>
 @endsection
