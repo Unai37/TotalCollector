@@ -1,11 +1,10 @@
 [phases.setup]
 nixPkgs = [
-  "php81.withExtensions (pe: pe.enabled ++ [])",
-  "nginx",
-  "libmysqlclient",
+  "php81",
   "php81Packages.composer",
   "nodejs_18",
-  "npm-9_x"
+  "nginx",
+  "libmysqlclient"
 ]
 
 [phases.install]
@@ -17,10 +16,8 @@ cmds = [
 [phases.build]
 cmds = [
   "composer install --no-dev --optimize-autoloader",
-  "php artisan key:generate",
-  "php artisan migrate --force",
   "php artisan config:cache"
 ]
 
 [start]
-cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
+cmd = "php artisan serve --host=0.0.0.0 --port=${PORT}"
