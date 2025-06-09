@@ -11,7 +11,7 @@
     <!-- Google Fonts: Press Start 2P for Pokémon style -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     
-    <link rel="icon" href="{{ asset('icono.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
     <style>
         /* Usamos fuente Pokémon solo en títulos */
