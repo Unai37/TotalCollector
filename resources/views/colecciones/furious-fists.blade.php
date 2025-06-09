@@ -3,14 +3,15 @@
 @section('content')
 <div class="bg-gradient-to-r from-pink-50 to-orange-50 rounded-xl p-8 mb-10 shadow-inner">
     <div class="text-center mb-6">
-        <h1 class="text-5xl font-extrabold text-gray-800 mb-2 tracking-tight">Scarlet & Violet</h1>
-        <p class="text-lg text-gray-600">La generación más reciente con nuevas mecánicas.</p>
+        <h1 class="text-5xl font-extrabold text-gray-800 mb-2 tracking-tight">Furious Fists</h1>
+        <p class="text-lg text-gray-600">Una colección centrada en Pokémon de tipo lucha como Lucario y Machamp.</p>
     </div>
     <div class="flex justify-center">
-        <img src="https://images.pokemontcg.io/sv1/logo.png" alt="Scarlet & Violet"
+        <img src="https://images.pokemontcg.io/xy3/logo.png" alt="Furious Fists"
              class="w-64 h-64 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300">
     </div>
-    <p class="text-gray-600">Total de cartas: 444<br>Lanzamiento: Marzo 2023</p>
+
+    <p class="text-gray-600">Total de cartas: 111<br>Lanzamiento: Agosto 2014</p>
 
     @if (session('mensaje'))
         <div class="bg-green-100 text-green-800 px-4 py-2 rounded mb-4 text-sm text-center">
@@ -51,7 +52,7 @@
 
     <div class="flex justify-between items-center mt-8">
         @if ($currentPage > 1)
-            <a href="{{ route('colecciones.scarlet-violet', ['page' => $currentPage - 1]) }}" class="bg-pink-300 px-4 py-2 rounded">
+            <a href="{{ route('colecciones.furious-fists', ['page' => $currentPage - 1]) }}" class="bg-pink-300 px-4 py-2 rounded">
                 ← Anterior
             </a>
         @else
@@ -59,7 +60,7 @@
         @endif
 
         @if ($hasMorePages)
-            <a href="{{ route('colecciones.scarlet-violet', ['page' => $currentPage + 1]) }}" class="bg-pink-300 px-4 py-2 rounded">
+            <a href="{{ route('colecciones.furious-fists', ['page' => $currentPage + 1]) }}" class="bg-pink-300 px-4 py-2 rounded">
                 Siguiente →
             </a>
         @endif
@@ -71,10 +72,8 @@
     <div class="relative">
         <button onclick="cerrarModal()" class="absolute top-2 right-2 text-white text-xl font-bold">&#10006;</button>
         <img id="modalImagen" src="" alt="Carta ampliada"
-     class="rounded shadow-lg transition-transform duration-300"
-     style="max-width: 90vw; max-height: 80vh; width: auto; height: auto; object-fit: contain;">
-
-
+             class="rounded shadow-lg transition-transform duration-300"
+             style="max-width: 90vw; max-height: 80vh; width: auto; height: auto; object-fit: contain;">
     </div>
 </div>
 

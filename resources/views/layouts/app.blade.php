@@ -46,6 +46,7 @@
                     <li><a href="{{ route('colecciones.base-set') }}" class="hover:text-red-600">Base Set</a></li>
                     <li><a href="{{ route('colecciones.champions-path') }}" class="hover:text-red-600">Champion's Path</a></li>
                     <li><a href="{{ route('colecciones.scarlet-violet') }}" class="hover:text-red-600">Scarlet & Violet</a></li>
+                    <li><a href="{{ route('colecciones') }}" class="hover:text-red-600">Mas...</a></li>
                 </ul>
             </li>
             <li><a href="{{ route('favoritos') }}" class="block hover:text-red-600">Favoritos</a></li>

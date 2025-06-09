@@ -32,7 +32,7 @@
                 <p class="text-sm text-gray-700">Entra a tus cartas favoritas.</p>
             </div>
         </a>
-        <a href="{{ route('Foro') }}" class="bg-yellow-100 border-4 border-red-400 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 block">
+        <a href="{{ route('foro') }}" class="bg-yellow-100 border-4 border-red-400 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 block">
             <div class="p-4">
                 <h2 class="text-xl font-pokemon text-red-600 mb-2">Foro</h2>
                 <p class="text-sm text-gray-700">Encuentra nuestro foro de preguntas.</p>

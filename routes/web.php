@@ -16,6 +16,12 @@ Route::get('/colecciones', function () {
 Route::get('/colecciones/base-set', [CartaController::class, 'baseSet'])->name('colecciones.base-set');
 Route::get('/colecciones/champions-path', [CartaController::class, 'championsPath'])->name('colecciones.champions-path');
 Route::get('/colecciones/scarlet-violet', [CartaController::class, 'scarletViolet'])->name('colecciones.scarlet-violet');
+Route::get('/colecciones/evolving-skies', [CartaController::class, 'evolvingSkies'])->name('colecciones.evolving-skies');
+Route::get('/colecciones/furious-fists', [CartaController::class, 'furiousFists'])->name('colecciones.furious-fists');
+Route::get('/colecciones/hidden-fates', [CartaController::class, 'hiddenFates'])->name('colecciones.hidden-fates');
+Route::get('/colecciones/lost-origin', [CartaController::class, 'lostOrigin'])->name('colecciones.losts-origin');
+Route::get('/colecciones/brilliant-stars', [CartaController::class, 'brilliantStars'])->name('colecciones.brilliant-stars');
+Route::get('/colecciones/cosmic-eclipse', [CartaController::class, 'cosmicEclipse'])->name('colecciones.cosmic-eclipse');
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
