@@ -1,16 +1,25 @@
 [phases.setup]
-nixPkgs = ["php81", "php81Packages.composer", "nodejs_18", "npm"]
+nixPkgs = [
+  "php81.withExtensions (pe: pe.enabled ++ [])",
+  "nginx",
+  "libmysqlclient",
+  "php81Packages.composer",
+  "nodejs_18",
+  "npm-9_x"
+]
 
 [phases.install]
 cmds = [
-  "composer install --no-dev --optimize-autoloader",
+  "composer install --ignore-platform-reqs",
   "npm install"
 ]
 
 [phases.build]
 cmds = [
-  "php artisan config:cache",
-  "php artisan migrate --force"
+  "composer install --no-dev --optimize-autoloader",
+  "php artisan key:generate",
+  "php artisan migrate --force",
+  "php artisan config:cache"
 ]
 
 [start]
