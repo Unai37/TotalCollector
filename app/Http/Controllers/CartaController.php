@@ -37,7 +37,7 @@ class CartaController extends Controller
     }
     public function lostOrigin(Request $request)
     {
-        return $this->mostrarColeccion($request, 'swsh11', 'colecciones.losts-origin');
+        return $this->mostrarColeccion($request, 'swsh11', 'colecciones.lost-origin');
     }
     public function brilliantStars(Request $request)
     {
