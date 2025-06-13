@@ -48,7 +48,7 @@
                 <p class="text-sm text-gray-700">Famosa por sus cartas brillantes, incluyendo versiones shiny de Pokémon populares.</p>
             </div>
         </a>
-        <a href="{{ route('colecciones.losts-origin') }}" class="bg-yellow-100 border-4 border-red-400 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 block">
+        <a href="{{ route('colecciones.lost-origin') }}" class="bg-yellow-100 border-4 border-red-400 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 block">
             <img src="https://images.pokemontcg.io/swsh11/logo.png" alt="Lost Origin" class="w-full h-32 object-contain bg-white p-2 rounded-t-lg">
             <div class="p-4">
                 <h2 class="text-xl font-pokemon text-red-600 mb-2">Lost Origin</h2>

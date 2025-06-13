@@ -19,7 +19,7 @@ Route::get('/colecciones/scarlet-violet', [CartaController::class, 'scarletViole
 Route::get('/colecciones/evolving-skies', [CartaController::class, 'evolvingSkies'])->name('colecciones.evolving-skies');
 Route::get('/colecciones/furious-fists', [CartaController::class, 'furiousFists'])->name('colecciones.furious-fists');
 Route::get('/colecciones/hidden-fates', [CartaController::class, 'hiddenFates'])->name('colecciones.hidden-fates');
-Route::get('/colecciones/lost-origin', [CartaController::class, 'lostOrigin'])->name('colecciones.losts-origin');
+Route::get('/colecciones/lost-origin', [CartaController::class, 'lostOrigin'])->name('colecciones.lost-origin');
 Route::get('/colecciones/brilliant-stars', [CartaController::class, 'brilliantStars'])->name('colecciones.brilliant-stars');
 Route::get('/colecciones/cosmic-eclipse', [CartaController::class, 'cosmicEclipse'])->name('colecciones.cosmic-eclipse');
 
