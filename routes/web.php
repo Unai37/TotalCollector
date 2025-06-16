@@ -24,14 +24,13 @@ Route::get('/colecciones/brilliant-stars', [CartaController::class, 'brilliantSt
 Route::get('/colecciones/cosmic-eclipse', [CartaController::class, 'cosmicEclipse'])->name('colecciones.cosmic-eclipse');
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // 🛡 Rutas protegidas
 Route::middleware('auth.session')->group(function () {
-    Route::post('/login', [AuthController::class, 'login']);
-    Route::post('/register', [AuthController::class, 'register']);
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/perfil', [UsuarioController::class, 'profile'])->name('profile');
     Route::get('/foro', [ForoController::class, 'index'])->name('foro');
     Route::post('/foro/preguntar', [ForoController::class, 'crearPregunta'])->name('foro.crear');
