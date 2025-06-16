@@ -23,12 +23,12 @@ Route::get('/colecciones/lost-origin', [CartaController::class, 'lostOrigin'])->
 Route::get('/colecciones/brilliant-stars', [CartaController::class, 'brilliantStars'])->name('colecciones.brilliant-stars');
 Route::get('/colecciones/cosmic-eclipse', [CartaController::class, 'cosmicEclipse'])->name('colecciones.cosmic-eclipse');
 
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 
 
 // 🛡 Rutas protegidas
 Route::middleware('auth.session')->group(function () {
-    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-    Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
