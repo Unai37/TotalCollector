@@ -4,7 +4,7 @@
 <div class="max-w-6xl mx-auto px-4 py-10">
     <h1 class="text-4xl font-pokemon text-red-600 mb-6 text-center">Tus Cartas Favoritas</h1>
 
-    @if ($carta->isEmpty())
+    @if ($cartas->isEmpty())
         <p class="text-center text-gray-700 text-lg">No has añadido cartas a favoritos todavía.</p>
     @else
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
